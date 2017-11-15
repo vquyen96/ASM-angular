@@ -1,0 +1,16 @@
+<div class="" ng-controller="ctrlVideo">
+	<div class="col-md-7 col-sm-12 col-xs-12">
+		<iframe id="video-frame" width="100%" height="400px" ng-src="{{mySrc}}" frameborder="0" allowfullscreen></iframe>
+		<span id="titleVideo">{{titleVideo}}</span>
+		<button class="btn btn-warning pull-right" ng-click="addVideo()">
+			<span class="glyphicon glyphicon-plus"></span>
+			Add Video
+		</button>
+	</div>
+	<div class="col-md-5 col-sm-12 col-xs-12">
+		<a href="" ng-repeat="video in listVideo" class="row">
+			<img ng-src="{{video.snippet.thumbnails.medium.url}}" class="col-md-4 col-sm-4 col-xs-4" ng-click="showVideo(video.id.videoId,video.snippet.thumbnails.medium.url)">
+			<div class="col-md-8 col-sm-8 col-xs-8" id="{{video.id.videoId}}"><strong>{{video.snippet.title}}</strong></div>
+		</a>	
+	</div>
+</div>

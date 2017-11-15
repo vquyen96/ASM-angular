@@ -1,0 +1,22 @@
+header{
+	margin-bottom:40px;
+	background: #fff;
+}
+
+.imglogo{
+	margin-top: 10px;
+	height: 50px;
+}
+
+
+.alert-success{
+	display: none;
+}
+.alert-danger{
+	display: none;
+}
+.infoValidate{
+	color: #f00;
+	height: 35px;
+	line-height: 35px;
+}

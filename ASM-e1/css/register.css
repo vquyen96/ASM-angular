@@ -1,0 +1,27 @@
+header{
+	margin-bottom:40px;
+	background: #fff;
+}
+
+.imglogo{
+	margin-top: 10px;
+	height: 50px;
+}
+
+
+.row{
+	margin: 10px;
+}
+
+span{
+	color: #f00;
+	height: 35px;
+	line-height: 35px;
+}
+
+.alert-success{
+	display: none;
+}
+.alert-danger{
+	display: none;
+}

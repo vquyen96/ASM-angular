@@ -1,0 +1,42 @@
+<fieldset class="container" ng-controller="ctrlLogin">
+	<legend>Member Login</legend>
+	<form name="loginForm">
+		<div class="alert alert-success" role="alert" style="display: none;"></div>
+		<div class="alert alert-danger" role="alert" style="display: none;"></div>
+		<div class="row form-group">
+			<label class="control-label col-md-2">Tài khoản</label>
+			<div class="col-md-3">
+				<input type="text" name="username" id="username" required="" class="form-control" placeholder="Thông tin tài khoản" ng-model="object.data.attributes.username"  ng-minlength="6" ng-maxlength="14"></input>
+			</div>
+			<span ng-show="loginForm.username.$error.minlength" class="col-md-3 infoValidate">
+				Tài khoản quá ngắn
+			</span>
+			<span ng-show="loginForm.username.$error.maxlength" class="col-md-3 infoValidate">
+				Tài khoản quá dài
+			</span>	
+			<span ng-show="loginForm.username.$dirty && loginForm.username.$error.required" class="col-md-3 infoValidate">
+				Nhập Tài Khoản
+			</span>	
+		</div>
+		<div class="row form-group">
+			<label class="control-label col-md-2">Mật khẩu</label>
+			<div class="col-md-3">
+				<input type="password" name="password" id="pass" required="" class="form-control"  ng-model="object.data.attributes.password" ng-minlength="8"></input>
+			</div>
+			<span ng-show="loginForm.password.$error.minlength" class="col-md-3 infoValidate">
+				Mật khẩu quá ngắn
+			</span>
+			<span ng-show="loginForm.password.$dirty && loginForm.password.$error.required" class="col-md-3 infoValidate">
+				Nhập Mật khẩu
+			</span>
+		</div>
+		<div class="row form-group">
+			<label class="control-label col-md-2"></label>
+			<div class="controls col-md-3">
+		    	<button class="btn btn-success" id="btnSubmit" ng-click="myFunction()">Đăng Nhập</button>
+		    	<input type="reset" name="" class="btn btn-warning" value="Làm lại">
+		    </div>
+		</div>
+	</form>
+		
+</fieldset>

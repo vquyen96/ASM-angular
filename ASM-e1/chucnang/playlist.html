@@ -1,0 +1,14 @@
+<div ng-controller="ctrlPlaylist">
+	<p class="headMain">
+		<a href="" name="top">Playlist</a>
+	</p>
+	<a href="" class="col-md-3 col-sm-4 col-xs-6 content" ng-repeat="video in playlists">
+		<img class="" ng-src="{{video.attributes.thumbnail}}" ng-click="showVideo(video.attributes.youtubeId)">
+		<div class="text-center title" id="{{video.attributes.videoId}}"><strong>{{video.attributes.name}}</strong></div>
+	</a>
+	<div id="modal-video" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel">
+		<div class="modal-dialog modal-lg" role="document">
+			<iframe id="video-frame" width="900" height="580" ng-src="{{mySrc}}" frameborder="0" allowfullscreen></iframe>
+		</div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->			
+</div>

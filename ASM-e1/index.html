@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+	<title>Mytube</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="fonts/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+
+	<script type="text/javascript" src="js/angular.min.js"></script>
+	<script type="text/javascript" src="js/angular-route.js"></script>
+
+
+</head>
+<body>
+	<header class="container-fluid" ng-controller="ctrlHead">
+		<div class="row">
+			<div class="col-md-4 col-sm-4 col-xs-4">
+				
+			</div>
+			
+			<div class="input-group col-md-4 col-sm-4 col-xs-4 inputSearchHead">
+		    	<input type="text" class="valueSearch form-control" value="Hà Anh Tuấn">
+		    	<input type="hidden" name="idVideo" id="idVideo" value="-6s_eRHYqVM">
+		    	<input type="hidden" name="thumbnail" id="thumbnail" value="">
+		    	<input type="hidden" name="nameVideo" id="nameVideo" value="Ngọt - Em dạo này">
+		    	<span class="input-group-btn">
+		        	<a href="#/!" class="btn btn-default" ng-click="btnSearch()">
+		        		<i class="fa fa-search" aria-hidden="true"></i>
+		        	</a>
+		    	</span>
+		    </div>
+		    <div class="col-md-4 col-sm-4 col-xs-4 infoUser">
+		    	<div class="col-md-2 col-sm-2"></div>
+		    	<div class="avaHead col-md-8 col-sm-8 col-xs-8">
+		    		<a href="#!register" class="btn btn-default" ng-hide="isLoggedIn">
+		    			<span class="glyphicon glyphicon-plus"></span>
+		    			Register
+		    		</a>
+		    		<a href="#!login" class="btn btn-default" ng-hide="isLoggedIn">
+		    			<span class="glyphicon glyphicon-log-in"></span>
+		    			Login
+		    		</a>
+		    		<a href="" class="btn btn-default" ng-show="isLoggedIn" ng-click="btnLogout()">
+		    			<span class="glyphicon glyphicon-log-out"></span>
+		    			Log Out
+		    		</a>
+		    		<a href="" class="btn btn-default" ng-show="isLoggedIn">
+		    			<span class="glyphicon glyphicon-user"></span>
+		    			{{loggedInUsername}}
+		    		</a>
+		    	</div>
+		    	<div class="col-md-2 col-sm-2 col-xs-2 cog">
+		    		<a href="">
+		    			<i class="fa fa-cogs" aria-hidden="true"></i>
+		    		</a>
+		    		
+		    	</div>
+		    </div>
+		</div>	
+	</header>
+	<div class="menuBar" ng-controller="ctrlBar">
+		<div class="btnNav" ng-click="btnNav()">
+			<a href="">
+				<i class="fa fa-bars" aria-hidden="true"></i>
+			</a>
+		</div>
+		<div class="ilogo">
+			<a href="#/!">
+				<b>M</b><b class="ishow">y</b>t<span class="ishow">u</span>b<span class="ishow">e</span>
+			</a>
+		</div>
+
+		<div class="btnAdd"> 
+			<a href="#!addVideo" class="btn btn-warning form-control">
+				<span class="glyphicon glyphicon-plus"></span>
+				<span class="ishow">Add Video</span>
+			</a>
+			<!-- <div class="avaMenuImg">
+				<a href="">
+					<img src="imgs/ava.jpg">
+				</a>
+				
+			</div>
+			<div class="avaMenuName ishow">
+				<p>Admin</p>
+				<a href="#">
+					<i class="fa fa-circle text-success" aria-hidden="true"></i>
+					Online
+				</a>
+			</div> -->
+		</div>
+		
+		<div class="input-group inputSearchMenu ishow">
+	    	<input type="text" class="form-control inputMenu" placeholder="Search for...">
+	    	<span class="input-group-btn">
+	        	<button class="btn btn-default btnSearchMenu" type="button">
+	        		<i class="fa fa-search" aria-hidden="true"></i>
+	        	</button>
+	    	</span>
+	    </div>
+	    <div>
+	    	<div class="nameMenu ishow">MAIN NAVIGATION</div>
+	    	<div class="menu">
+	    		<ul>
+	    			<li class="menuli">
+	    				<a href="#!playlist" class="ulview">
+	    					<i class="fa fa-book" aria-hidden="true"></i>
+	    					<span class="ishow">MyPlaylist</span>
+	    					<span class="pull-right-container ishow">
+	    						<i class="fa fa-angle-left pull-right"></i>
+	    					</span>
+	    				</a>
+	    				<ul class="menuItem">
+	    					<li>
+	    						<a href="">
+			    					<i class="fa fa-circle-o" aria-hidden="true"></i>
+			    					<span>Name Playlist</span>
+			    				</a>
+	    					</li>
+	    				</ul>
+	    				<ul class="menuItem">
+	    					<li>
+	    						<a href="">
+			    					<i class="fa fa-circle-o" aria-hidden="true"></i>
+			    					<span>Name Playlist</span>
+			    				</a>
+	    					</li>
+	    				</ul>
+	    			</li>
+	    			<li class="menuli">
+	    				<a href="#!love" class="ulview">
+	    					<i class="fa fa-heart" aria-hidden="true"></i>
+	    					<span class="ishow">Video Loved</span>
+	    					<span class="pull-right-container ishow">
+	    						<i class="fa fa-angle-left pull-right"></i>
+	    					</span>
+	    				</a>
+	    			</li>
+	    			<li class="menuli">
+	    				<a href=#!like"" class="ulview">
+	    					<i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
+	    					<span class="ishow">Video liked</span>
+	    					<span class="pull-right-container ishow">
+	    						<i class="fa fa-angle-left pull-right"></i>
+	    					</span>
+	    				</a>
+	    			</li>
+	    			<li class="menuli">
+	    				<a href="#!save" class="ulview">
+	    					<i class="fa fa-bookmark" aria-hidden="true"></i>
+	    					<span class="ishow">Video Saved</span>
+	    					<span class="pull-right-container ishow">
+	    						<i class="fa fa-angle-left pull-right"></i>
+	    					</span>
+	    				</a>
+	    			</li>
+	    			<li class="menuli">
+	    				<a href="#!block" class="ulview">
+	    					<i class="fa fa-ban" aria-hidden="true"></i>
+	    					<span class="ishow">Video Blocked</span>
+	    					<span class="pull-right-container ishow">
+	    						<i class="fa fa-angle-left pull-right"></i>
+	    					</span>
+	    				</a>
+	    			</li>
+	    			<li class="menuli">
+	    				<a href="#!donate" class="ulview">
+	    					<i class="fa fa-credit-card-alt" aria-hidden="true"></i>
+	    					<span class="ishow">Donate Us</span>
+	    					<span class="pull-right-container ishow">
+	    						<i class="fa fa-angle-left pull-right"></i>
+	    					</span>
+	    				</a>
+	    				<ul class="menuItem">
+	    					<li>
+	    						<a href="">
+			    					<i class="fa fa-circle-o" aria-hidden="true"></i>
+			    					<span>Name Video</span>
+			    				</a>
+	    					</li>
+	    				</ul>
+	    				<ul class="menuItem">
+	    					<li>
+	    						<a href="">
+			    					<i class="fa fa-circle-o" aria-hidden="true"></i>
+			    					<span>Name Video</span>
+			    				</a>
+	    					</li>
+	    				</ul>
+	    			</li>
+	    			<li>
+	    				<a href="#!setting">
+	    					<i class="fa fa-cog" aria-hidden="true"></i>
+	    					<span class="ishow">Setting</span>
+	    					<span class="pull-right-container ishow">
+	    						<i class="fa fa-angle-left pull-right"></i>
+	    					</span>
+	    				</a>
+	    				<ul class="menuItem">
+	    					<li>
+	    						<a href="">
+			    					<i class="fa fa-circle-o" aria-hidden="true"></i>
+			    					<span>Name Video</span>
+			    				</a>
+	    					</li>
+	    				</ul>
+	    				<ul class="menuItem">
+	    					<li>
+	    						<a href="">
+			    					<i class="fa fa-circle-o" aria-hidden="true"></i>
+			    					<span>Name Video</span>
+			    				</a>
+	    					</li>
+	    				</ul>
+	    			</li>
+	    			<li class="nameMenu ishow">
+	    				LABELS
+	    			</li>
+	    			<li>
+	    				<a href="">
+	    					<i class="fa fa-circle-o text-red" aria-hidden="true"></i>
+	    					<span class="ishow">Important</span>
+	    				</a>
+	    			</li>
+	    			<li>
+	    				<a href="">
+	    					<i class="fa fa-circle-o text-yellow" aria-hidden="true"></i>
+	    					<span class="ishow">Warning</span>
+	    				</a>
+	    			</li>
+	    			<li>
+	    				<a href="">
+	    					<i class="fa fa-circle-o text-blue" aria-hidden="true"></i>
+	    					<span class="ishow">Information</span>
+	    				</a>
+	    			</li>
+	    		</ul>
+	    	</div>
+	    </div>
+	</div>
+	<main class="" >
+		<div class="container-fluid video">
+			<div class="row" ng-view>
+				
+			</div>
+		</div>
+
+	</main>
+	<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/script.js"></script>
+</body>
+</html>
